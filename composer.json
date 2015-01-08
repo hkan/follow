@@ -1,0 +1,23 @@
+{
+    "name": "hkan/follow",
+    "description": "",
+    "authors": [
+        {
+            "name": "Hakan Aktas",
+            "email": "iletisim@hakanaktas.com.tr"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Hkan\\Follow\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
