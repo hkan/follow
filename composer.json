@@ -1,6 +1,8 @@
 {
     "name": "hkan/follow",
     "description": "",
+    "homepage": "https://github.com/hkan/follow",
+    "keywords": [ "laravel", "user", "follow" ],
     "authors": [
         {
             "name": "Hakan Aktas",
