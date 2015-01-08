@@ -16,16 +16,19 @@ class HkanFollowCreateUserFollowsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create(Follow::pivotTable(), function (Blueprint $table)
+		$pivotTable = Follow::pivotTable();
+		$usersTable = Follow::usersTable();
+
+		Schema::create($pivotTable, function (Blueprint $table) use ($usersTable)
 		{
 			$table->increments('id');
 
 			$table->integer('user_id')->unsigned();
-			$table->foreign('user_id')->references('id')->on(Follow::usersTable())
+			$table->foreign('user_id')->references('id')->on($usersTable)
 				->onUpdate('cascade')->onDelete('cascade');
 
 			$table->integer('follow_id')->unsigned();
-			$table->foreign('follow_id')->references('id')->on(Follow::usersTable())
+			$table->foreign('follow_id')->references('id')->on($usersTable)
 				->onUpdate('cascade')->onDelete('cascade');
 
 			$table->timestamps();

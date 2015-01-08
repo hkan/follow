@@ -1,6 +1,5 @@
 <?php namespace Hkan\Follow;
 
-use Hkan\Follow\Facades\Follow;
 use Illuminate\Support\ServiceProvider;
 
 class FollowServiceProvider extends ServiceProvider {
