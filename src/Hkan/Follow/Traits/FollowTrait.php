@@ -2,6 +2,10 @@
 
 use Hkan\Follow\Facades\Follow;
 
+/**
+ * Class FollowTrait
+ * @package Hkan\Follow\Traits
+ */
 trait FollowTrait {
 
 	/**
@@ -61,12 +65,38 @@ trait FollowTrait {
 	 */
 	public function isFollowing($user)
 	{
-		if ($user instanceof User)
+		if (is_a($user, Follow::userModel()))
 		{
 			$user = $user->id;
 		}
 
 		return $this->followings()->where('follow_id', $user)->count() > 0;
+	}
+
+	/**
+	 * @param $user
+	 */
+	public function follow($user)
+	{
+		if (is_a($user, Follow::userModel()))
+		{
+			$user = $user->id;
+		}
+
+		$this->followings()->attach($user);
+	}
+
+	/**
+	 * @param $user
+	 */
+	public function unfollow($user)
+	{
+		if (is_a($user, Follow::userModel()))
+		{
+			$user = $user->id;
+		}
+
+		$this->followings()->detach($user);
 	}
 
 	/**
